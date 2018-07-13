@@ -20,6 +20,8 @@ fatherOf(kevan, lancel).
 fatherOf(kevan, willem).
 fatherOf(kevan, martyn).
 
-
 parentsOf(X, Y) :- motherOf(X, Y).
 parentsOf(X, Y) :- fatherOf(X, Y).
+
+ancestor(Ancestor, Child) :- parentsOf(Ancestor, Child).
+ancestor(Ancestor, Child) :- parentsOf(Z, Child), ancestor(Ancestor, Z).
