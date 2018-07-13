@@ -12,7 +12,7 @@ fatherOf(jaime, joffrey).
 fatherOf(jaime, myrcella).
 fatherOf(jaime, tommen).
 fatherOf(tywin, cersei).
-fatherOf(tywin, jaime)).
+fatherOf(tywin, jaime).
 fatherOf(tywin, tyrion).
 fatherOf(tytos,tywin).
 fatherOf(tytos,kevan).
