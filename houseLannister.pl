@@ -20,10 +20,12 @@ fatherOf(kevan, lancel).
 fatherOf(kevan, willem).
 fatherOf(kevan, martyn).
 
-parentsOf(X, Y) :- motherOf(X, Y).
-parentsOf(X, Y) :- fatherOf(X, Y).
+parentOf(X, Y) :- motherOf(X, Y).
+parentOf(X, Y) :- fatherOf(X, Y).
 
-ancestor(Ancestor, Child) :- parentsOf(Ancestor, Child).
-ancestor(Ancestor, Child) :- parentsOf(Z, Child), ancestor(Ancestor, Z).
+ancestor(X, Y) :- parentOf(X, Y).
+ancestor(X, Y) :- parentOf(X, V), ancestor(V, Y).
 
-siblings(Child1, Child2) :- motherOf(Mother, Child1), motherOf(Mother, Child2), fatherOf(Father, Child1), fatherOf(Father, Child2).
+siblings(X, Y) :- parentOf(V, X), parentOf(V, Y), X \== Y.
+
+cousin(X, Y) :- parentOf(V, X), parentOf(Z, Y), siblings(V, Z).
